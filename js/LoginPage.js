@@ -8,7 +8,7 @@ $(document).ready(function(){
     let userPasswordBox=["123456","654321"];
 
     $("#LoginErrorAlert").hide();
-    console.log("dd");
+
     $(".userIdPassword").on("input", function(){
         if($(this).attr("name")==="username")
         {
@@ -27,6 +27,7 @@ $(document).ready(function(){
         {
             $(".loginButton").removeAttr("disabled");
             $(".loginButton").addClass("removeDisabled");
+            
         }
         else
         {
@@ -34,7 +35,24 @@ $(document).ready(function(){
             $(".loginButton").removeClass("removeDisabled");
         }
     });
+
     $(".loginButton").on("click", function(){
+        LoginSubmit();
+    });
+
+    $(document).on("keydown",function(e){
+        if(userNameLength>=1 && idPasswordLength>=6)
+        {
+            if(e.keyCode==13)
+            {
+                $(".userIdPassword").blur();
+                LoginSubmit();
+            }
+        }
+    })
+
+    function LoginSubmit()
+    {
         var userNameIndex = -1;
         var idPasswordIndex = -2;
         for(var i=0; i<userIdBox.length; i++)
@@ -66,6 +84,6 @@ $(document).ready(function(){
             $("#LoginErrorAlert").text("잘못된 비밀번호입니다. 다시 확인하세요.");
             $("#LoginErrorAlert").show();
         }
-    });
+    }
 
 });
