@@ -52,6 +52,15 @@
     font-size: 16px;
     color: #ff5d5d;    
 }
+#LoginIdErrorAlert
+{
+    position: relative;
+    top : 27%;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 16px;
+    color: #ff5d5d;    
+}
 .removeDisabled
 {
     background-color: #55c1ff;
@@ -62,4 +71,8 @@
     top: 440px;
     left: 134px;
     font-size: 13px;
+}
+input:focus
+{
+    outline: none;
 }
